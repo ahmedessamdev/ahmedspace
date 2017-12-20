@@ -1,7 +1,7 @@
-## ahmedspace
+# ahmedspace.com
 My personal website
 
-# Built with
+## Built with
 * [Hugo](https://gohugo.io/) - static website generator built with golang
 * [hyde-x](https://github.com/zyro/hyde-x) - hugo theme for personal blogs by [zyro](https://github.com/zyro)
 
