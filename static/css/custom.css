@@ -1,0 +1,63 @@
+.sidebar {
+    background-color: #0b4a00 !important;
+}
+
+.sidebar-about h1 {
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.lead {
+    font-size: 1.2rem;
+}
+
+.sidebar-about img { margin: 0 auto 0.75rem auto; }
+
+figure img {
+    border: 1px solid #999;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.feature-image {
+  float: left;
+  margin: 0 1rem 1rem 0;
+}
+
+.feature-image.feature-image-list {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+#flair-container {
+  width: 100%;
+}
+
+/*
+@media only screen and (max-width: 38rem) {
+  #flair-container img {
+    margin: 0 auto 1rem;
+  }
+}
+*/
+
+@media (min-width: 38em) {
+  html {
+    font-size: 20px;
+  }
+}
+
+
+@media screen and (max-width: 38rem)
+{
+  #flair-container img {
+    margin: 0 auto 1rem;
+  }
+}
