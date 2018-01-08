@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Ahmed Space</title>
+    <link>http://localhost/post/</link>
+    <description>Recent content in Posts on Ahmed Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to recover a corrupted flash memory using F3 tools under Linux</title>
+      <link>http://localhost/blog/2017/11/20/how-to-recover-a-corrupted-flash-memory-using-f3-tools-under-linux/</link>
+      <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost/blog/2017/11/20/how-to-recover-a-corrupted-flash-memory-using-f3-tools-under-linux/</guid>
+      <description>Note: This tutorial requires Linux. If you want to test your flash under windows check out: test-and-detect-fake-flash-with-h2testw
+So you have a corrupted flash memory, you copy files into it and when you try to open it later, they don&amp;rsquo;t work. There are number of reasons for this problem, one of them is aging, flash memories have a lifetime too and there is a limited number of writes. If this was the cause of the problem, then it is time to retire it.</description>
+    </item>
+    
+    <item>
+      <title>Arabic Case Insensitive In Database Systems: How To Solve Alef With and Without Hamza Problem</title>
+      <link>http://localhost/blog/2017/04/15/arabic-case-insensitive-in-database-systems-how-to-solve-alef-with-and-without-hamza-problem/</link>
+      <pubDate>Sat, 15 Apr 2017 16:35:17 +0200</pubDate>
+      
+      <guid>http://localhost/blog/2017/04/15/arabic-case-insensitive-in-database-systems-how-to-solve-alef-with-and-without-hamza-problem/</guid>
+      <description>When I first started learning database systems, I ran into problems dealing with Arabic text in databases. Since these problems were specific to the Arabic language, I couldn&amp;rsquo;t easily find solutions on the internet. I try in this post to summarize the solutions I know to a common Arabic text problem in database systems, hoping it will help someone struggling to deal with Arabic text in databases.
+You have characters which are considered the same in Arabic (like Alef &#39;ا&#39; and Alef without Hamza &#39;أ&#39;), but these are two different characters in database systems.</description>
+    </item>
+    
+  </channel>
+</rss>
