@@ -1,3 +1,5 @@
 # Config file
 config.toml
 config.yaml
+# Public folder
+public/

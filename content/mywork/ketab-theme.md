@@ -1,11 +1,15 @@
 +++
 title = "Ketab Theme"
-date = 2017-12-11T02:57:34+02:00
-description = "Free WordPress theme"
+description = "Open source WordPress theme"
 featured_image = "/images/ketab-theme-screenshot.png"
 +++
 
-I designed and developed this theme years ago. Its a bit of old design and I don't see my self as a designer anyway. If you are interested, its all yours.
+I designed and developed this theme years ago. Its a bit of old design, but it is working fine. Later, I decided to specialize in back-end programming and leave the design for the designers.
 
-+ [Ketab at Gitub](https://github.com/ahmedessamdev/ketab)
++ Theme preview : [ketab.ahmedspace.com](http://ketab.ahmedspace.com)
++ Files:
+  + [ketab.zip](https://github.com/ahmedessamdev/ketab/releases/download/v0.1/ketab.zip) - 152KB
+  + [home.psd](https://github.com/ahmedessamdev/ketab/releases/download/v0.1/home.psd) - 5.84MB - Note: Theme was first designed in Arabic
+  + [header-background.psd](https://github.com/ahmedessamdev/ketab/releases/download/v0.1/header-background.psd) - 2.31MB
++ [github.com/ahmedessamdev/ketab](https://github.com/ahmedessamdev/ketab)
 

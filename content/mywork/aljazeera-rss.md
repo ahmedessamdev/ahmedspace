@@ -1,6 +1,5 @@
 +++
 title = "Aljazeera RSS WordPress Plugin"
-date = "2015-06-06"
 description = "WordPress plugin fetches the latest RSS news from Aljazeera Arabic"
 featured_image = "/images/aljazeera_rss.png"
 +++

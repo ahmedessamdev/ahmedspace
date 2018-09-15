@@ -3,34 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost/blog/2017/11/20/how-to-recover-a-corrupted-flash-memory-using-f3-tools-under-linux/</loc>
+    <loc>https://ahmedspace.com/how-to-recover-a-corrupted-flash-memory-using-f3-tools-under-linux/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost/blog/2017/04/15/arabic-case-insensitive-in-database-systems-how-to-solve-alef-with-and-without-hamza-problem/</loc>
+    <loc>https://ahmedspace.com/arabic-case-insensitive-in-database-systems-how-to-solve-alef-with-and-without-hamza-problem/</loc>
     <lastmod>2017-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost/mywork/aljazeera-rss/</loc>
-    <lastmod>2015-06-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost/</loc>
+    <loc>https://ahmedspace.com/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost/mywork/</loc>
-    <lastmod>2015-06-06T00:00:00+00:00</lastmod>
+    <loc>https://ahmedspace.com/mywork/aljazeera-rss/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ahmedspace.com/mywork/ketab-theme/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ahmedspace.com/mywork/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost/post/</loc>
+    <loc>https://ahmedspace.com/post/</loc>
     <lastmod>2017-11-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
