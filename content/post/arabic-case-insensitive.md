@@ -1,7 +1,7 @@
 +++
 title = "Arabic Case Insensitive In Database Systems: How To Solve Alef With and Without Hamza Problem"
 date = 2017-04-15T16:35:17+02:00
-lastmod = "2017-11-28"
+lastmod = "2018-11-17"
 tags = [ "Database", "Arabic", "MySQL"]
 categories = [
     "Database",
@@ -13,7 +13,7 @@ description= "This tutorial shows how to make case insenstive search in Arabic l
 
 When I first started learning database systems, I ran into problems dealing with Arabic text in databases. Since these problems were specific to the Arabic language, I couldn't easily find solutions on the internet. I try in this post to summarize the solutions I know to a common Arabic text problem in database systems, hoping it will help someone struggling to deal with Arabic text in databases.
 
-You have characters which are considered the same in Arabic (like Alef `'ا'` and Alef without Hamza `'أ'`), but these are two different characters in database systems. When you try to make a search function in your website, for example, you want to ignore the differences between these characters. The use of case-insensitive collation like `utf8_unicode_ci` won't solve the problem. The `'ا'` and `'أ'` aren't considered equal in the [character mapping](http://collation-charts.org/mysql60/mysql604.utf8_unicode_ci.middle_eastern.html) of `utf8_unicode_ci`.
+You have characters which are considered the same in Arabic (like Alef `'ا'` and Alef with Hamza `'أ'`), but these are two different characters in database systems. When you try to make a search function in your website, for example, you want to ignore the differences between these characters. The use of case-insensitive collation like `utf8_unicode_ci` won't solve the problem. The `'ا'` and `'أ'` aren't considered equal in the [character mapping](http://collation-charts.org/mysql60/mysql604.utf8_unicode_ci.middle_eastern.html) of `utf8_unicode_ci`.
 
 There are three solutions for this problem:
 
@@ -45,11 +45,16 @@ I will show you how to apply these solutions for MySQL. For other database syste
 
 This is the recommended solution for most cases. You won't change any data in your database. All you are going to do is simply telling the DBS to treat these characters as one. The steps we will use here are based on MySQL documentation [Adding a UCA Collation to a Unicode Character Set](https://dev.mysql.com/doc/refman/5.7/en/adding-collation-unicode-uca.html).
 
-First, we will need to modify a special MySQL file named `Index.xml` and add our new collation there. The location of the file varies from one system to another. We will get the location of the file from `information_schema` database. This is the database where MySQL stores databases metadata and information. Run the following query on `information_schema`:
+First, we will need to modify a special MySQL file which contains the character sets and add our new collation there. The file name is `Index.xml`.  The location of the file varies from one system to another. We will get the location of the file from `information_schema` database. This is the database where MySQL stores databases metadata and information. Run the following query on `information_schema` database:
 
 {{< highlight console >}}
 
 SHOW VARIABLES LIKE 'character_sets_dir';
+{{< /highlight >}}
+
+You should get a result like the following:
+
+{{< highlight console >}}
 
 +--------------------+----------------------------+
 | Variable_name      | Value                      |
@@ -65,38 +70,33 @@ On my Debian Linux system, the file path is `/usr/share/mysql/charsets/Index.xml
 
 We need an id and a name for our collation, the range of IDs from [1024 to 2047 is reserved for user-defined collations](https://dev.mysql.com/doc/refman/5.7/en/adding-collation-choosing-id.html), so choose a number in this range. I choose the name to be `utf8_arabic_ci`.
 
-Let's add the collation to the `Index.xml` file and then explain what the collation rules mean. Add the following starting from the line under the dots:
+Let's add the collation to the `Index.xml` file and then explain what the collation rules mean. Add the following:
 
 {{< highlight xml >}}
 
-<charset name="utf8">
-.
-.
-.
-  <collation name="utf8_arabic_ci" id="1029">
-    <rules>
-        <reset>\u0627</reset>   <!-- Alef 'ا' -->
-        <i>\u0623</i>           <!-- Alef With Hamza Above 'أ' -->
-        <i>\u0625</i>           <!-- Alef With Hamza Below 'إ' -->
-        <i>\u0622</i>           <!-- Alef With Madda Above 'آ' -->
-    </rules>
-    <rules>
-        <reset>\u0629</reset>   <!-- Teh Marbuta 'ة' -->
-        <i>\u0647</i>           <!-- Heh 'ه' -->
-    </rules>
-    <rules>
-        <reset>\u0000</reset>   <!-- Unicode value of NULL  -->
-        <i>\u064E</i>           <!-- Fatha 'َ' -->
-        <i>\u064F</i>           <!-- Damma 'ُ' -->
-        <i>\u0650</i>           <!-- Kasra 'ِ' -->
-        <i>\u0651</i>           <!-- Shadda 'ّ' -->
-        <i>\u064F</i>           <!-- Sukun 'ْ' -->
-        <i>\u064B</i>           <!-- Fathatan 'ً' -->
-        <i>\u064C</i>           <!-- Dammatan 'ٌ' -->
-        <i>\u064D</i>           <!-- Kasratan 'ٍ' -->
-    </rules>
-  </collation>
-</charset>
+<collation name="utf8_arabic_ci" id="1029">
+  <rules>
+      <reset>\u0627</reset>   <!-- Alef 'ا' -->
+      <i>\u0623</i>           <!-- Alef With Hamza Above 'أ' -->
+      <i>\u0625</i>           <!-- Alef With Hamza Below 'إ' -->
+      <i>\u0622</i>           <!-- Alef With Madda Above 'آ' -->
+  </rules>
+  <rules>
+      <reset>\u0629</reset>   <!-- Teh Marbuta 'ة' -->
+      <i>\u0647</i>           <!-- Heh 'ه' -->
+  </rules>
+  <rules>
+      <reset>\u0000</reset>   <!-- Unicode value of NULL  -->
+      <i>\u064E</i>           <!-- Fatha 'َ' -->
+      <i>\u064F</i>           <!-- Damma 'ُ' -->
+      <i>\u0650</i>           <!-- Kasra 'ِ' -->
+      <i>\u0651</i>           <!-- Shadda 'ّ' -->
+      <i>\u064F</i>           <!-- Sukun 'ْ' -->
+      <i>\u064B</i>           <!-- Fathatan 'ً' -->
+      <i>\u064C</i>           <!-- Dammatan 'ٌ' -->
+      <i>\u064D</i>           <!-- Kasratan 'ٍ' -->
+  </rules>
+</collation>
 
 {{< /highlight >}}
 
@@ -104,7 +104,7 @@ This added part tells MySQL that `utf8_arabic_ci` (or whatever you name it) is a
 
 + `'أ','إ','آ'` is the same character as `'ا'` (All the Alef forms are one character)
 + `'ه'` is the same character as `'ة'` (so `"نسمة"` is the same as `"نسمه"`)
-+ Tashkil characters are ignored (as if they aren't there)
++ Tashkil characters are ignored completely as if they aren't there
 
 You can add more rules as you like. After saving the file, restart MySQL server to use our collation, on my Debian I use:
 
